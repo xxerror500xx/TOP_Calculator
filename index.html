@@ -1,43 +1,154 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
-  <title>TOP Calculator</title>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <title>TOP: Calculator</title>
+  <meta name="description" content="An excercise using javascript for The Odin Project.">
+  <meta name="keywords" content="Bootstrap-4, Pingendo, The Odin project, Js, Css, Html">
+  <link rel="icon" href="../../../Desktop/original_disk.png">
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|VT323|Shadows+Into+Light" rel="stylesheet">
+  <link rel="stylesheet" href="simple.css"> </head>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/main.css" charset="utf-8">
-</head>
-
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">TOP Calculator</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
+<body class="bg-lines">
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" target="_blank"><b><i class="fa d-inline fa-lg px-1 fa-calculator"></i> TOP: Calculator</b></a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+        <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="https://github.com/xxerror500xx">My Repos</a>
+            <a class="nav-link" href="https://github.com/xxerror500xx"><i class="fa d-inline fa-lg fa-github px-1"></i> My Repos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="https://github.com/xxerror500xx/TOP_Calculator">This Repo</a>
+            <a class="nav-link" href="https://github.com/xxerror500xx/TOP_Calculator"><i class="fa d-inline fa-lg fa-github px-1"></i> This Repo</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 col-12 col-lg-6 border" id="calculator">
+          <div class="row">
+            <div class="col-md-12 p-1">
+              <form class="">
+                <div class="form-group text-right"> <small class="text-muted sketch-font" id="ver-desc">Paper Calculator Ver. 0.0.1</small>
+                  <input type="text" class="form-control text-right  calc-disp tape-font" aria-describedby="emailHelp" placeholder="(123)+[4-56]*7.8/9 =" id="calc-screen"> <small class="form-text text-dark">press the on button!<br></small></div>
+              </form>
+            </div>
+          </div>
+          <div class="row mb-2 mt-2">
+            <div class="col-1 col-md-1 col-xl-1"></div>
+            <div class="col-5 col-md-3 col-xl-5 solar-grid-clear-y m-0 p-0" id="solar-panel"></div>
+            <div class="m-0 p-0 col-md-2 col-2 col-xl-2"></div>
+            <div class="col-3 col-md-3 col-xl-3 mx-auto">
+              <a class="btn btn-sm sketch-btn mx-auto btn-success" href="#" id="on-off"><b class="sketch-font">ON</b></a>
+            </div>
+          </div>
+          <div class="row calc">
+            <div class="col-md-2 col-2 col-xl-2">
+              <a class="btn btn-primary btn-lg m-1 sketch-btn" href="#" id="num-7"><b class="sketch-font">7 </b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-primary btn-lg  m-1 sketch-btn" href="#" id="num-8"><b class="sketch-font">8 </b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-primary btn-lg m-1 sketch-btn" href="#" id="num-9"><b class="sketch-font">9</b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-lg m-1 btn-info sketch-btn" href="#" id="divide"><b class="sketch-font">/</b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-lg m-1 btn-danger sketch-btn" href="#" id="a-clr"><b class="sketch-font">AC</b></a>
+            </div>
+          </div>
+          <div class="row calc">
+            <div class="col-md-2 col-2">
+              <a class="btn btn-primary btn-lg m-1 sketch-btn" href="#" id="num-4"><b class="sketch-font">4 </b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-primary btn-lg m-1 sketch-btn" href="#" id="num-5"><b class="sketch-font">5</b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-primary btn-lg m-1 sketch-btn" href="#" id="num-6"><b class="sketch-font">6</b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-lg m-1 btn-info sketch-btn" href="#" id="multiply"><b class="sketch-font">X</b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-lg m-1 btn-danger sketch-btn" href="#" id="clr"><b class="sketch-font">&nbsp;C&nbsp;</b></a>
+            </div>
+          </div>
+          <div class="row calc">
+            <div class="col-md-2 col-2">
+              <a class="btn btn-primary btn-lg m-1 sketch-btn" href="#" id="num-1"><b class="sketch-font">1</b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-primary btn-lg m-1 sketch-btn" href="#" id="num-2"><b class="sketch-font">2 </b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-primary btn-lg m-1 sketch-btn" href="#" id="num-3"><b class="sketch-font">3</b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-lg m-1 btn-info sketch-btn" href="#" id="subtract"><b class="sketch-font">-</b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-lg m-1 btn-warning sketch-btn" href="#" id="del"><b class="sketch-font">&lt;-</b></a>
+            </div>
+          </div>
+          <div class="row calc">
+            <div class="col-md-2 col-2">
+              <a class="btn btn-primary btn-lg m-1 sketch-btn" href="#" id="num-0"><b class="sketch-font">0 </b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-primary btn-lg m-1 sketch-btn" href="#" id="num-00"><b class="sketch-font">00</b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-primary btn-lg m-1 sketch-btn" href="#" id="dot"><b class="sketch-font">&nbsp;.</b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-lg m-1 btn-info sketch-btn" href="#" id="add"><b class="sketch-font">+</b></a>
+            </div>
+            <div class="col-md-2 col-2">
+              <a class="btn btn-lg m-1 btn-success sketch-btn" href="#" id="equals"><b class="sketch-font">&nbsp;=&nbsp;</b></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6" id="paper-tape">
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="sketch-font">Equation</th>
+                <th class="sketch-font">Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="">
+                <td class="tape-font">3 / 4 =</td>
+                <td class="tape-font">0.75</td>
+              </tr>
+              <tr class="">
+                <td class="tape-font">2 + 2 =</td>
+                <td class="tape-font">4</td>
+              </tr>
+              <tr class="">
+                <td class="tape-font">5 * 5 =</td>
+                <td class="tape-font">25</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  <script src="js/master.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
