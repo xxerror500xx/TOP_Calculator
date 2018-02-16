@@ -6186,7 +6186,6 @@ html, body {
 
 .sketch-btn {
   align-self: center;
-  background: .6;
   padding: 1rem 1rem;
   margin: 0 1rem;
   transition: all 0.5s ease;
@@ -6203,8 +6202,32 @@ html, body {
    border-bottom-right-radius: 225px 15px;
    border-bottom-left-radius:15px 255px;
    */ }
+   a.sketch-btn-outline, a.sketch-btn-outline:hover {
+     color: gray;
+     text-transform: none;
+     text-decoration: none;
+     box-shadow: none;
+   }
+  a.sketch-btn-outline:hover#on-off {
+     color: blue;
+     text-transform: none;
+     text-decoration: none;
+     box-shadow: none;
+   }
+   .sketch-btn-outline {
+     display: inline-block;
+     text-decoration: none;
+     padding: 1rem 1rem;
+     color: gray;
 
-.sketch-btn:hover {
+     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+     background-color: rgba(255,255,255,0);
+     border: .2em solid;
+   }
+   .sketch-btn:hover {
+     background-color: rgba(255,255,255,0);
+     box-shadow: none; }
+.sketch-btn-outline:hover {
   box-shadow: 2px 8px 4px -6px rgba(0, 0, 0, 0.3); }
 
 .sketch-font {
