@@ -6185,7 +6185,7 @@ html, body {
   /* 45px is the Line height between the blue lines */ }
 
 .sketch-btn {
-  align-self: center;
+  display: inline-block;
   padding: 1rem 1rem;
   margin: 0 1rem;
   transition: all 0.5s ease;
@@ -6193,15 +6193,16 @@ html, body {
   letter-spacing: 0px;
   outline: none;
   box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.9);
+  border: .2em solid;
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   /*
-   original code borrowed from https://codepen.io/tmrDevelops
-   Above is shorthand for:
-   border-top-left-radius: 255px 15px;
-   border-top-right-radius: 15px 225px;
-   border-bottom-right-radius: 225px 15px;
-   border-bottom-left-radius:15px 255px;
+   original border code borrowed from https://codepen.io/tmrDevelops
    */ }
+   .sketch-btn:hover, .sketch-btn:active, .sketch-btn:focus{
+     /*transition: all 0.5s ease;*/
+     box-shadow: 20px 38px 34px -26px rgba(0, 0, 0, 0.9);
+     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+   }
    a.sketch-btn-outline, a.sketch-btn-outline:hover {
      color: gray;
      text-transform: none;
@@ -6209,7 +6210,7 @@ html, body {
      box-shadow: none;
    }
   a.sketch-btn-outline:hover#on-off {
-     color: blue;
+     color: black;
      text-transform: none;
      text-decoration: none;
      box-shadow: none;
@@ -6219,16 +6220,10 @@ html, body {
      text-decoration: none;
      padding: 1rem 1rem;
      color: gray;
-
      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
      background-color: rgba(255,255,255,0);
      border: .2em solid;
    }
-   .sketch-btn:hover {
-     background-color: rgba(255,255,255,0);
-     box-shadow: none; }
-.sketch-btn-outline:hover {
-  box-shadow: 2px 8px 4px -6px rgba(0, 0, 0, 0.3); }
 
 .sketch-font {
   font-family: 'Permanent Marker', cursive;
