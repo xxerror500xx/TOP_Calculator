@@ -1,6 +1,7 @@
 var calc = {
   init: function() {
     power = false;
+    equation = [];
     buttons = [
       {id:'a-clr', class:'btn-danger'},
       {id:'clr', class:'btn-danger'},
@@ -57,8 +58,45 @@ var calc = {
       $('#' + buttons[i].id).removeClass(' btn sketch-btn ' + buttons[i].class);
       $('#' + buttons[i].id).addClass('sketch-btn-outline');
     }
+  },
+  addToEquation: function(value) {
+    if(power) {
+      console.log("adding val to equation: " + value);
+      equation.push(value)
+      this.updateCalcDisplay();
+    } else {
+      console.log("We needs dah POW-AH!");
+    }
+  },
+  updateCalcDisplay: function() {
+    if (equation.length > 0) {
+      $('#calc-disp').val($('#calc-disp').val() + equation[equation.length-1]);
+    } else {
+      $('#calc-disp').val('0');
+    }
+  },
+  clrCurrentEquation: function() {
+    $('#calc-disp').val('0');
+    equation = [];
+  },
+  updatePaperTape: function(equationString, result) {
+    // Row should equal pastEquations index
+    $('#p-tBody').append('<tr class=""><td class="tape-font">' + equationString + '</td><td class="tape-font">=' + result + '</td></tr>')
   }
 };
 $(document).ready(function() {
   calc.init();
+  calc.updateCalcDisplay();
+  calc.updatePaperTape("3 / 4", "0.75");
+  calc.updatePaperTape("2 + 2", "4");
+  calc.updatePaperTape("5 * 5", "25");
+  calc.updatePaperTape("3 / 4", "0.75");
+  calc.updatePaperTape("2 + 2", "4");
+  calc.updatePaperTape("5 * 5", "25");
+  calc.updatePaperTape("3 / 4", "0.75");
+  calc.updatePaperTape("2 + 2", "4");
+  calc.updatePaperTape("5 * 5", "25");
+  calc.updatePaperTape("3 / 4", "0.75");
+  calc.updatePaperTape("2 + 2", "4");
+  calc.updatePaperTape("5 * 5", "25");
 });
