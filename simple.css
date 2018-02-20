@@ -6270,13 +6270,6 @@ html, body {
   background: -ms-linear-gradient(0deg, #3700ff 0%, black 2%, #3700ff 4%, black 6%, #3700ff 7%, #3700ff 24%, black 25%, #3700ff 26%, #3700ff 37%, black 38%, #3700ff 40%, black 41%, #3700ff 42%, #3700ff 53%, black 55%, #3700ff 56%, #3700ff 64%, black 65%, #3700ff 66%, #3700ff 74%, black 75%, #3700ff 76%, #3700ff 94%, black 95%, #3700ff 96%, #3700ff 100%);
   background: linear-gradient(90deg, #3700ff 0%, black 2%, #3700ff 4%, black 6%, #3700ff 7%, #3700ff 24%, black 25%, #3700ff 26%, #3700ff 37%, black 38%, #3700ff 40%, black 41%, #3700ff 42%, #3700ff 53%, black 55%, #3700ff 56%, #3700ff 64%, black 65%, #3700ff 66%, #3700ff 74%, black 75%, #3700ff 76%, #3700ff 94%, black 95%, #3700ff 96%, #3700ff 100%); }
 
-.solar-grid-x {
-  background: -moz-linear-gradient(90deg, black 0%, transparent 2%, black 4%, transparent 6%, transparent 16%, black 17%, transparent 18%, transparent 33%, black 35%, transparent 36%, black 38%, transparent 40%, transparent 73%, black 76%, transparent 76%, black 79%, transparent 81%, transparent 98%, rgba(0, 0, 0, 0.5) 99%, black 100%);
-  background: -webkit-linear-gradient(90deg, black 0%, transparent 2%, black 4%, transparent 6%, transparent 16%, black 17%, transparent 18%, transparent 33%, black 35%, transparent 36%, black 38%, transparent 40%, transparent 73%, black 76%, transparent 76%, black 79%, transparent 81%, transparent 98%, rgba(0, 0, 0, 0.5) 99%, black 100%);
-  background: -o-linear-gradient(90deg, black 0%, transparent 2%, black 4%, transparent 6%, transparent 16%, black 17%, transparent 18%, transparent 33%, black 35%, transparent 36%, black 38%, transparent 40%, transparent 73%, black 76%, transparent 76%, black 79%, transparent 81%, transparent 98%, rgba(0, 0, 0, 0.5) 99%, black 100%);
-  background: -ms-linear-gradient(90deg, black 0%, transparent 2%, black 4%, transparent 6%, transparent 16%, black 17%, transparent 18%, transparent 33%, black 35%, transparent 36%, black 38%, transparent 40%, transparent 73%, black 76%, transparent 76%, black 79%, transparent 81%, transparent 98%, rgba(0, 0, 0, 0.5) 99%, black 100%);
-  background: linear-gradient(0deg, black 0%, transparent 2%, black 4%, transparent 6%, transparent 16%, black 17%, transparent 18%, transparent 33%, black 35%, transparent 36%, black 38%, transparent 40%, transparent 73%, black 76%, transparent 76%, black 79%, transparent 81%, transparent 98%, rgba(0, 0, 0, 0.5) 99%, black 100%); }
-
 #calculator {
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px; }
 #ver-desc {

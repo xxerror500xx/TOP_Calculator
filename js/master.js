@@ -28,12 +28,12 @@ var calc = {
   },
   // toggels power on and off
   pwr: function() {
-    console.log("in pwr()");
-    console.log(power);
     if(power) {
       $('#on-off').removeClass('btn sketch-btn btn-danger');
       $('#on-off').addClass('sketch-btn-outline');
       this.rmvBtnClasses();
+      $('#solar-panel').addClass('solar-grid-clear-y');
+      $('#solar-panel').removeClass('solar-grid-blue-y');
       $('#on-off-txt').text('ON');
       this.clrAll();
     } else {
@@ -42,6 +42,7 @@ var calc = {
 
       $('#on-off').removeClass('sketch-btn-outline');
       $('#on-off').addClass('btn sketch-btn btn-danger');
+
       this.addBtnClasses();
     }
     power = !power;
@@ -54,6 +55,8 @@ var calc = {
       $('#' + buttons[i].id).removeClass('sketch-btn-outline');
       $('#' + buttons[i].id).addClass('btn sketch-btn ' + buttons[i].class);
     }
+    $('#solar-panel').addClass('solar-grid-blue-y');
+    $('#solar-panel').removeClass('solar-grid-clear-y');
   },
   rmvBtnClasses: function() {
     for (var i = 0; i < buttons.length; i++) {
@@ -64,7 +67,7 @@ var calc = {
   addToEquation: function(value) {
     if(power) {
       console.log("adding val to equation: " + value);
-      equation.push(value)
+      equation.push(value);
       this.updateCalcDisplay();
     }
   },
@@ -77,7 +80,7 @@ var calc = {
   },
   updatePaperTape: function(equationString, result) {
     // Row should equal pastEquations index
-    $('#p-tBody').append('<tr class=""><td class="tape-font">' + equationString + '</td><td class="tape-font"> = ' + result + '</td></tr>')
+    $('#p-tBody').append('<tr class=""><td class="tape-font">' + equationString + '</td><td class="tape-font"> = ' + result + '</td></tr>');
   },
   clrCurrentEquation: function() {
     if (power) {
@@ -104,21 +107,25 @@ var calc = {
       variables = eqString.split('*');
       result = parseInt(variables[0]);
       for (var i = 1; i < variables.length; i++) {
-        result = eval(result * parseInt(variables[i]))
+        result = eval(result * parseInt(variables[i]));
       }
     }else if (eqString.includes('/')) {
-      console.log("lets divide it " + eqString);
+      variables = eqString.split('/');
+      result = parseInt(variables[0]);
+      for (var i = 1; i < variables.length; i++) {
+        result = eval(result / parseInt(variables[i]));
+      }
     }else if (eqString.includes('+')) {
       variables = eqString.split('+');
       result = 0;
       for (var i = 0; i < variables.length; i++) {
-        result = eval(result + parseInt(variables[i]))
+        result = eval(result + parseInt(variables[i]));
       }
     }else if (eqString.includes('-')) {
       variables = eqString.split('-');
       result = parseInt(variables[0]);
       for (var i = 1; i < variables.length; i++) {
-        result = eval(result - parseInt(variables[i]))
+        result = eval(result - parseInt(variables[i]));
         console.log(result);
       }
     }
