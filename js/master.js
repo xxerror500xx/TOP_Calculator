@@ -47,6 +47,7 @@ var calc = {
       this.addBtnClasses();
     }
     power = !power;
+    calc.updateCalcDisplay();
   },
   addBtnClasses: function() {
     for (var i = 0; i < buttons.length; i++) {
@@ -67,10 +68,16 @@ var calc = {
     }
   },
   updateCalcDisplay: function() {
+    if (equation.length === 1 && equation[0] !== '0') {
+      $('#calc-disp').val('');
+    }
     if (equation.length > 0) {
       $('#calc-disp').val($('#calc-disp').val() + equation[equation.length-1]);
-    } else {
+    }else if(equation.length === 0) {
       $('#calc-disp').val('0');
+    }
+    if (!power) {
+      $('#calc-disp').val('');
     }
   },
   updatePaperTape: function(equationString, result) {
@@ -79,8 +86,8 @@ var calc = {
   },
   clrCurrentEquation: function() {
     if (power) {
-      $('#calc-disp').val('0');
       equation = [];
+      this.updateCalcDisplay();
     }
   },
   clrAll: function() {
@@ -132,5 +139,4 @@ var calc = {
 $(document).ready(function() {
   calc.init();
   calc.updateCalcDisplay();
-
 });
