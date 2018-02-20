@@ -2,7 +2,7 @@ var calc = {
   init: function() {
     power = false;
     equation = [];
-    prevEquations = [];
+    prevResult = "";
     buttons = [
       {id:'a-clr', class:'btn-danger'},
       {id:'clr', class:'btn-danger'},
@@ -63,8 +63,16 @@ var calc = {
   },
   addToEquation: function(value) {
     if(power) {
-      equation.push(value);
-      this.updateCalcDisplay();
+      if (prevResult !== "" && value.match(/(\D)/)) {
+        equation.push(prevResult);
+        equation.push(value);
+        prevResult = "";
+        this.updateCalcDisplay();
+      }else {
+        equation.push(value);
+        this.updateCalcDisplay();
+        prevResult = "";
+      }
     }
   },
   updateCalcDisplay: function() {
@@ -87,6 +95,7 @@ var calc = {
   clrCurrentEquation: function() {
     if (power) {
       equation = [];
+      prevResult = '';
       this.updateCalcDisplay();
     }
   },
@@ -94,12 +103,18 @@ var calc = {
     if (power) {
       this.clrCurrentEquation();
       $('#p-tBody').empty();
+      prevResult = '';
     }
   },
   del: function() {
-    if (equation.length > 0 && power) {
-      $('#calc-disp').val($('#calc-disp').val().slice(0, -1));
-      equation.pop();
+    if (power) {
+      if (equation.length > 0) {
+        $('#calc-disp').val($('#calc-disp').val().slice(0, -1));
+        equation.pop();
+      }else if (equation.length === 0 && prevResult !== '') {
+        prevResult = '';
+        this.updateCalcDisplay();
+      }
     }
   },
   equals: function() {
@@ -132,8 +147,10 @@ var calc = {
       }
     }
     $('#calc-disp').val(result);
-    equation = [result];
-    this.updatePaperTape(eqString ,result);
+    prevResult = result;
+    equation = [];
+    result = '';
+    this.updatePaperTape(eqString, prevResult);
   }
 };
 $(document).ready(function() {
