@@ -42,21 +42,17 @@ var calc = {
 
       $('#on-off').removeClass('sketch-btn-outline');
       $('#on-off').addClass('btn sketch-btn btn-danger');
-
+      $('#solar-panel').addClass('solar-grid-blue-y');
+      $('#solar-panel').removeClass('solar-grid-clear-y');
       this.addBtnClasses();
     }
     power = !power;
-    // set toggle
-    // add sketch-btn class
-    // add handlers for math functions and calc-display
   },
   addBtnClasses: function() {
     for (var i = 0; i < buttons.length; i++) {
       $('#' + buttons[i].id).removeClass('sketch-btn-outline');
       $('#' + buttons[i].id).addClass('btn sketch-btn ' + buttons[i].class);
     }
-    $('#solar-panel').addClass('solar-grid-blue-y');
-    $('#solar-panel').removeClass('solar-grid-clear-y');
   },
   rmvBtnClasses: function() {
     for (var i = 0; i < buttons.length; i++) {
@@ -66,7 +62,6 @@ var calc = {
   },
   addToEquation: function(value) {
     if(power) {
-      console.log("adding val to equation: " + value);
       equation.push(value);
       this.updateCalcDisplay();
     }
@@ -137,16 +132,5 @@ var calc = {
 $(document).ready(function() {
   calc.init();
   calc.updateCalcDisplay();
-  // calc.updatePaperTape("102938475609876543211234567890", "0.75");
-  // calc.updatePaperTape("2 + 2", "4");
-  // calc.updatePaperTape("5 * 5", "25");
-  // calc.updatePaperTape("3 / 4", "0.75");
-  // calc.updatePaperTape("2 + 2", "4");
-  // calc.updatePaperTape("5 * 5", "25");
-  // calc.updatePaperTape("3 / 4", "0.75");
-  // calc.updatePaperTape("2 + 2", "4");
-  // calc.updatePaperTape("5 * 5", "25");
-  // calc.updatePaperTape("3 / 4", "0.75");
-  // calc.updatePaperTape("2 + 2", "4");
-  // calc.updatePaperTape("5 * 5", "25");
+
 });
