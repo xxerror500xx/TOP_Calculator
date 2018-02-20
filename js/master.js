@@ -2,33 +2,92 @@ var calc = {
   init: function() {
     power = false;
     equation = [];
-    prevResult = "";
-    buttons = [
-      {id:'a-clr', class:'btn-danger'},
-      {id:'clr', class:'btn-danger'},
-      {id:'del', class:'btn-warning'},
-      {id:'equals', class:'btn-success'},
-      {id:'divide', class:'btn-info'},
-      {id:'multiply', class:'btn-info'},
-      {id:'add', class:'btn-info'},
-      {id:'subtract', class:'btn-info'},
-      {id:'dot', class:'btn-primary'},
-      {id:'num-9', class:'btn-primary'},
-      {id:'num-8', class:'btn-primary'},
-      {id:'num-7', class:'btn-primary'},
-      {id:'num-6', class:'btn-primary'},
-      {id:'num-5', class:'btn-primary'},
-      {id:'num-4', class:'btn-primary'},
-      {id:'num-3', class:'btn-primary'},
-      {id:'num-2', class:'btn-primary'},
-      {id:'num-1', class:'btn-primary'},
-      {id:'num-0', class:'btn-primary'},
-      {id:'num-00', class:'btn-primary'}
+    prevResult = '';
+    buttons = [{
+        id: 'a-clr',
+        class: 'btn-danger'
+      },
+      {
+        id: 'clr',
+        class: 'btn-danger'
+      },
+      {
+        id: 'del',
+        class: 'btn-warning'
+      },
+      {
+        id: 'equals',
+        class: 'btn-success'
+      },
+      {
+        id: 'divide',
+        class: 'btn-info'
+      },
+      {
+        id: 'multiply',
+        class: 'btn-info'
+      },
+      {
+        id: 'add',
+        class: 'btn-info'
+      },
+      {
+        id: 'subtract',
+        class: 'btn-info'
+      },
+      {
+        id: 'dot',
+        class: 'btn-primary'
+      },
+      {
+        id: 'num-9',
+        class: 'btn-primary'
+      },
+      {
+        id: 'num-8',
+        class: 'btn-primary'
+      },
+      {
+        id: 'num-7',
+        class: 'btn-primary'
+      },
+      {
+        id: 'num-6',
+        class: 'btn-primary'
+      },
+      {
+        id: 'num-5',
+        class: 'btn-primary'
+      },
+      {
+        id: 'num-4',
+        class: 'btn-primary'
+      },
+      {
+        id: 'num-3',
+        class: 'btn-primary'
+      },
+      {
+        id: 'num-2',
+        class: 'btn-primary'
+      },
+      {
+        id: 'num-1',
+        class: 'btn-primary'
+      },
+      {
+        id: 'num-0',
+        class: 'btn-primary'
+      },
+      {
+        id: 'num-00',
+        class: 'btn-primary'
+      }
     ];
   },
   // toggels power on and off
   pwr: function() {
-    if(power) {
+    if (power) {
       $('#on-off').removeClass('btn sketch-btn btn-danger');
       $('#on-off').addClass('sketch-btn-outline');
       this.rmvBtnClasses();
@@ -62,16 +121,28 @@ var calc = {
     }
   },
   addToEquation: function(value) {
-    if(power) {
-      if (prevResult !== "" && value.match(/(\D)/)) {
-        equation.push(prevResult);
-        equation.push(value);
-        prevResult = "";
-        this.updateCalcDisplay();
-      }else {
-        equation.push(value);
-        this.updateCalcDisplay();
-        prevResult = "";
+    if (power) {
+      if (equation.length === 0) {
+        if (value.match(/\*|\/|\+/)) {
+          this.error('Cant start an equation with /,*, or +');
+        } else {
+          equation.push(value);
+          this.updateCalcDisplay();
+          prevResult = '';
+        }
+      } else {
+        if (prevResult !== "" && value.match(/(\D)/)) {
+          equation.push(prevResult);
+          equation.push(value);
+          prevResult = '';
+          this.updateCalcDisplay();
+        } else if (equation[equation.length - 1].match(/\*|\/|\+/) && value.match(/\*|\/|\+/)) {
+          this.error('To many math symbols in a row.');
+        } else {
+          equation.push(value);
+          this.updateCalcDisplay();
+          prevResult = '';
+        }
       }
     }
   },
@@ -80,8 +151,8 @@ var calc = {
       $('#calc-disp').val('');
     }
     if (equation.length > 0) {
-      $('#calc-disp').val($('#calc-disp').val() + equation[equation.length-1]);
-    }else if(equation.length === 0) {
+      $('#calc-disp').val($('#calc-disp').val() + equation[equation.length - 1]);
+    } else if (equation.length === 0) {
       $('#calc-disp').val('0');
     }
     if (!power) {
@@ -111,34 +182,42 @@ var calc = {
       if (equation.length > 0) {
         $('#calc-disp').val($('#calc-disp').val().slice(0, -1));
         equation.pop();
-      }else if (equation.length === 0 && prevResult !== '') {
+      } else if (equation.length === 0 && prevResult !== '') {
         prevResult = '';
         this.updateCalcDisplay();
       }
     }
   },
+  error: function(errString) {
+    console.log(errString);
+  },
   equals: function() {
     eqString = equation.join('');
     console.log(eqString);
-    if(eqString.includes('*')) {
+    if (eqString.includes('*')) {
       variables = eqString.split('*');
       result = parseInt(variables[0]);
       for (var i = 1; i < variables.length; i++) {
         result = eval(result * parseInt(variables[i]));
       }
-    }else if (eqString.includes('/')) {
+    } else if (eqString.includes('/')) {
       variables = eqString.split('/');
       result = parseInt(variables[0]);
       for (var i = 1; i < variables.length; i++) {
-        result = eval(result / parseInt(variables[i]));
+        if (parseInt(variables[i]) !== 0) {
+          result = eval(result / parseInt(variables[i]));
+        } else {
+          this.error("Really a divide by ZERO C'mon!?");
+          result = '¯＼(º_o)/¯';
+        }
       }
-    }else if (eqString.includes('+')) {
+    } else if (eqString.includes('+')) {
       variables = eqString.split('+');
       result = 0;
       for (var i = 0; i < variables.length; i++) {
         result = eval(result + parseInt(variables[i]));
       }
-    }else if (eqString.includes('-')) {
+    } else if (eqString.includes('-')) {
       variables = eqString.split('-');
       result = parseInt(variables[0]);
       for (var i = 1; i < variables.length; i++) {
@@ -146,11 +225,19 @@ var calc = {
         console.log(result);
       }
     }
-    $('#calc-disp').val(result);
-    prevResult = result;
-    equation = [];
-    result = '';
-    this.updatePaperTape(eqString, prevResult);
+    if (result === '¯＼(º_o)/¯') {
+      $('#calc-disp').val(result);
+      this.updatePaperTape(eqString, result);
+      prevResult = '';
+      equation = [];
+      result = '';
+    }else {
+      $('#calc-disp').val(result);
+      prevResult = result;
+      equation = [];
+      result = '';
+      this.updatePaperTape(eqString, prevResult);
+    }
   }
 };
 $(document).ready(function() {
