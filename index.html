@@ -38,7 +38,7 @@
             <div class="col-md-12 p-1">
               <form class="">
                 <div class="form-group m-0"> <small class="text-muted sketch-font" id="ver-desc">Paper Calculator Ver. 0.0.1</small>
-                  <input id="calc-disp" type="text" class="form-control text-right calc-disp tape-font" aria-describedby="calculatorDisplay" placeholder="0" id="calc-screen"> <small id="press-txt" class="form-text text-dark text-right mr-4">Press the on button! </small></div>
+                  <input id="calc-disp" type="text" class="form-control text-right calc-disp tape-font" aria-describedby="calculatorDisplay" placeholder="0" id="calc-screen" readonly> <small id="press-txt" class="form-text text-dark text-right mr-4">Press the on button! </small></div>
               </form>
             </div>
           </div>
@@ -63,7 +63,7 @@
             <div class="col-md-2 col-2" onclick="calc.addToEquation('/')">
               <a class="btn-lg m-1 sketch-btn-outline" href="#" id="divide"><b class="sketch-font">/</b></a>
             </div>
-            <div class="col-md-2 col-2">
+            <div class="col-md-2 col-2" onclick="calc.clrAll()">
               <a class="btn-lg m-1 sketch-btn-outline" href="#" id="a-clr"><b class="sketch-font">AC</b></a>
             </div>
           </div>
@@ -97,7 +97,7 @@
             <div class="col-md-2 col-2" onclick="calc.addToEquation('-')">
               <a class="btn-lg m-1 sketch-btn-outline" href="#" id="subtract"><b class="sketch-font">-</b></a>
             </div>
-            <div class="col-md-2 col-2">
+            <div class="col-md-2 col-2" onclick="calc.del()">
               <a class="btn-lg m-1 sketch-btn-outline" href="#" id="del"><b class="sketch-font">&lt;-</b></a>
             </div>
           </div>
@@ -114,7 +114,7 @@
             <div class="col-md-2 col-2" onclick="calc.addToEquation('+')">
               <a class="btn-lg m-1 sketch-btn-outline" href="#" id="add"><b class="sketch-font">+</b></a>
             </div>
-            <div class="col-md-2 col-2">
+            <div class="col-md-2 col-2" onclick="calc.equals()">
               <a class="btn-lg m-1 sketch-btn-outline" href="#" id="equals"><b class="sketch-font">&nbsp;=&nbsp;</b></a>
             </div>
           </div>
