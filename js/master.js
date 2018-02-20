@@ -101,7 +101,11 @@ var calc = {
     eqString = equation.join('');
     console.log(eqString);
     if(eqString.includes('*')) {
-      console.log("lets multiply it " + eqString);
+      variables = eqString.split('*');
+      result = parseInt(variables[0]);
+      for (var i = 1; i < variables.length; i++) {
+        result = eval(result * parseInt(variables[i]))
+      }
     }else if (eqString.includes('/')) {
       console.log("lets divide it " + eqString);
     }else if (eqString.includes('+')) {
@@ -110,7 +114,6 @@ var calc = {
       for (var i = 0; i < variables.length; i++) {
         result = eval(result + parseInt(variables[i]))
       }
-      console.log(eqString + ' = ' + result);
     }else if (eqString.includes('-')) {
       variables = eqString.split('-');
       result = parseInt(variables[0]);
@@ -118,7 +121,6 @@ var calc = {
         result = eval(result - parseInt(variables[i]))
         console.log(result);
       }
-      console.log(eqString + ' = ' + result);
     }
     $('#calc-disp').val(result);
     equation = [result];
