@@ -57,86 +57,27 @@ var calc = {
     });
     equation = [];
     prevResult = '';
-    buttons = [{
-        id: 'a-clr',
-        class: 'btn-danger'
-      },
-      {
-        id: 'clr',
-        class: 'btn-danger'
-      },
-      {
-        id: 'del',
-        class: 'btn-warning'
-      },
-      {
-        id: 'equals',
-        class: 'btn-success'
-      },
-      {
-        id: 'divide',
-        class: 'btn-info'
-      },
-      {
-        id: 'multiply',
-        class: 'btn-info'
-      },
-      {
-        id: 'add',
-        class: 'btn-info'
-      },
-      {
-        id: 'subtract',
-        class: 'btn-info'
-      },
-      {
-        id: 'dot',
-        class: 'btn-primary'
-      },
-      {
-        id: 'num-9',
-        class: 'btn-primary'
-      },
-      {
-        id: 'num-8',
-        class: 'btn-primary'
-      },
-      {
-        id: 'num-7',
-        class: 'btn-primary'
-      },
-      {
-        id: 'num-6',
-        class: 'btn-primary'
-      },
-      {
-        id: 'num-5',
-        class: 'btn-primary'
-      },
-      {
-        id: 'num-4',
-        class: 'btn-primary'
-      },
-      {
-        id: 'num-3',
-        class: 'btn-primary'
-      },
-      {
-        id: 'num-2',
-        class: 'btn-primary'
-      },
-      {
-        id: 'num-1',
-        class: 'btn-primary'
-      },
-      {
-        id: 'num-0',
-        class: 'btn-primary'
-      },
-      {
-        id: 'num-00',
-        class: 'btn-primary'
-      }
+    buttons = [
+        { id: 'a-clr', class: 'btn-danger'},
+        { id: 'clr', class: 'btn-danger'},
+        { id: 'del', class: 'btn-warning'},
+        { id: 'equals', class: 'btn-success'},
+        { id: 'divide', class: 'btn-info'},
+        { id: 'multiply', class: 'btn-info'},
+        { id: 'add', class: 'btn-info'},
+        { id: 'subtract', class: 'btn-info'},
+        { id: 'dot', class: 'btn-primary'},
+        { id: 'num-9', class: 'btn-primary'},
+        { id: 'num-8', class: 'btn-primary'},
+        { id: 'num-7', class: 'btn-primary'},
+        { id: 'num-6', class: 'btn-primary'},
+        { id: 'num-5', class: 'btn-primary'},
+        { id: 'num-4', class: 'btn-primary'},
+        { id: 'num-3', class: 'btn-primary'},
+        { id: 'num-2', class: 'btn-primary'},
+        { id: 'num-1', class: 'btn-primary'},
+        { id: 'num-0', class: 'btn-primary'},
+        { id: 'num-00', class: 'btn-primary'}
     ];
   },
   pwr: function() {
@@ -191,6 +132,9 @@ var calc = {
           this.updateCalcDisplay();
         } else if (equation[equation.length - 1].match(/\*|\/|\+/) && value.match(/\*|\/|\+/)) {
           this.error('To many math symbols in a row.');
+        } else if (equation[equation.length - 1] === value) {
+          console.log(equation[equation.length - 1]);
+          this.error('Don\'t be so negative :(');
         } else {
           equation.push(value);
           this.updateCalcDisplay();
@@ -246,7 +190,7 @@ var calc = {
   },
   equals: function() {
     if (equation.length === 0) {
-      console.log('empty equation Yo! ');
+      console.log('empty equation Yo!');
     } else {
       eqString = equation.join('');
       console.log(eqString);
