@@ -119,6 +119,10 @@ var calc = {
       if (equation.length === 0) {
         if (value.match(/\*|\/|\+/)) {
           this.error('Cant start an equation with /,*, or +');
+        }else if (value === '.') {
+          equation.push('0' + value);
+          this.updateCalcDisplay();
+          prevResult = '';
         } else {
           equation.push(value);
           this.updateCalcDisplay();
@@ -132,7 +136,7 @@ var calc = {
           this.updateCalcDisplay();
         } else if (equation[equation.length - 1].match(/\*|\/|\+/) && value.match(/\*|\/|\+/)) {
           this.error('To many math symbols in a row.');
-        } else if (equation[equation.length - 1] === value) {
+        } else if (equation[equation.length - 1] === '-' && value === '-') {
           console.log(equation[equation.length - 1]);
           this.error('Don\'t be so negative :(');
         } else {
