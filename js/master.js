@@ -1,7 +1,7 @@
 var calc = {
   init: function() {
     power = false;
-    $( document ).keypress(function(e) {
+    $(document).keypress(function(e) {
       if (power) {
         pressed = e.which;
         if (pressed >= 48 && pressed <= 57) {
@@ -11,7 +11,7 @@ var calc = {
           numKeyPressed = String(numKeyCodes.indexOf(pressed));
           console.log('Number: ' + numKeyPressed);
           calc.addToEquation(numKeyPressed);
-        }else if (String(pressed).match(/(42|47|43|45)/)) {
+        } else if (String(pressed).match(/(42|47|43|45)/)) {
           console.log('Symbols');
           // *,/,+,-
           // 42, 47, 43, 45
@@ -31,22 +31,22 @@ var calc = {
             default:
 
           }
-        }else if (pressed === 46) {
+        } else if (pressed === 46) {
           console.log('dot');
           // .
           // 46
           calc.addToEquation('.');
-        }else if (pressed === 8) {
+        } else if (pressed === 8) {
           console.log('backspace');
           // backspace
           // 8
           calc.del();
-        }else if (String(pressed).match(/(61|13)/)) {
+        } else if (String(pressed).match(/(61|13)/)) {
           console.log("Equals");
           // =, Enter
           // 61, 13
           calc.equals();
-        }else {
+        } else {
           console.log("a non important button for this calculator");
         }
         console.log(e.which);
@@ -245,51 +245,55 @@ var calc = {
     console.log(errString);
   },
   equals: function() {
-    eqString = equation.join('');
-    console.log(eqString);
-    if (eqString.includes('*')) {
-      variables = eqString.split('*');
-      result = parseInt(variables[0]);
-      for (var i = 1; i < variables.length; i++) {
-        result = eval(result * parseInt(variables[i]));
-      }
-    } else if (eqString.includes('/')) {
-      variables = eqString.split('/');
-      result = parseInt(variables[0]);
-      for (var i = 1; i < variables.length; i++) {
-        if (parseInt(variables[i]) !== 0) {
-          result = eval(result / parseInt(variables[i]));
-        } else {
-          this.error("Really a divide by ZERO C'mon!?");
-          result = '¯＼(º_o)/¯';
+    if (equation.length === 0) {
+      console.log('empty equation Yo! ');
+    } else {
+      eqString = equation.join('');
+      console.log(eqString);
+      if (eqString.includes('*')) {
+        variables = eqString.split('*');
+        result = parseInt(variables[0]);
+        for (var i = 1; i < variables.length; i++) {
+          result = eval(result * parseInt(variables[i]));
+        }
+      } else if (eqString.includes('/')) {
+        variables = eqString.split('/');
+        result = parseInt(variables[0]);
+        for (var i = 1; i < variables.length; i++) {
+          if (parseInt(variables[i]) !== 0) {
+            result = eval(result / parseInt(variables[i]));
+          } else {
+            this.error("Really a divide by ZERO C'mon!?");
+            result = '¯＼(º_o)/¯';
+          }
+        }
+      } else if (eqString.includes('+')) {
+        variables = eqString.split('+');
+        result = 0;
+        for (var i = 0; i < variables.length; i++) {
+          result = eval(result + parseInt(variables[i]));
+        }
+      } else if (eqString.includes('-')) {
+        variables = eqString.split('-');
+        result = parseInt(variables[0]);
+        for (var i = 1; i < variables.length; i++) {
+          result = eval(result - parseInt(variables[i]));
+          console.log(result);
         }
       }
-    } else if (eqString.includes('+')) {
-      variables = eqString.split('+');
-      result = 0;
-      for (var i = 0; i < variables.length; i++) {
-        result = eval(result + parseInt(variables[i]));
+      if (result === '¯＼(º_o)/¯') {
+        $('#calc-disp').val(result);
+        this.updatePaperTape(eqString, result);
+        prevResult = '';
+        equation = [];
+        result = '';
+      } else {
+        $('#calc-disp').val(result);
+        prevResult = result;
+        equation = [];
+        result = '';
+        this.updatePaperTape(eqString, prevResult);
       }
-    } else if (eqString.includes('-')) {
-      variables = eqString.split('-');
-      result = parseInt(variables[0]);
-      for (var i = 1; i < variables.length; i++) {
-        result = eval(result - parseInt(variables[i]));
-        console.log(result);
-      }
-    }
-    if (result === '¯＼(º_o)/¯') {
-      $('#calc-disp').val(result);
-      this.updatePaperTape(eqString, result);
-      prevResult = '';
-      equation = [];
-      result = '';
-    }else {
-      $('#calc-disp').val(result);
-      prevResult = result;
-      equation = [];
-      result = '';
-      this.updatePaperTape(eqString, prevResult);
     }
   }
 };
