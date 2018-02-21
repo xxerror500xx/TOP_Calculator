@@ -116,7 +116,7 @@ var calc = {
   },
   addToEquation: function(value) {
     if (power) {
-      if (equation.length === 0) {
+      if (equation.length === 0 && prevResult === "") {
         if (value.match(/\*|\/|\+/)) {
           this.error('Cant start an equation with /,*, or +');
         }else if (value === '.') {
@@ -128,6 +128,11 @@ var calc = {
           this.updateCalcDisplay();
           prevResult = '';
         }
+      } else if (equation.length === 0 && prevResult !== "") {
+        equation.push(prevResult);
+        equation.push(value);
+        this.updateCalcDisplay();
+        prevResult = '';
       } else {
         if (prevResult !== "" && value.match(/(\D)/)) {
           equation.push(prevResult);

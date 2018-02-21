@@ -6183,7 +6183,18 @@ html, body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffdf2', endColorstr='#fffdf2', GradientType=0), progid:DXImageTransform.Microsoft.gradient( startColorstr='#00fffdf2', endColorstr='#fffdf2',GradientType=1 );
   background-size: 100% 45px;
   /* 45px is the Line height between the blue lines */ }
+/*@media (min-width: @screen-xs-max) {
 
+}*/
+@media (max-width: 800px) {
+  * {
+   -webkit-transition: none !important;
+   -moz-transition: none !important;
+   -o-transition: none !important;
+   -ms-transition: none !important;
+   transition: none !important;
+  }
+}
 .sketch-btn {
   display: inline-block;
   padding: 1rem 1rem;
