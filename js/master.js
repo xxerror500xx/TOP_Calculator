@@ -84,6 +84,7 @@ var calc = {
     if (power) {
       $('#on-off').removeClass('btn sketch-btn btn-danger');
       $('#on-off').addClass('sketch-btn-outline');
+      $('#press-txt').removeClass('invisible');
       this.rmvBtnClasses();
       $('#solar-panel').addClass('solar-grid-clear-y');
       $('#solar-panel').removeClass('solar-grid-blue-y');
@@ -95,6 +96,7 @@ var calc = {
 
       $('#on-off').removeClass('sketch-btn-outline');
       $('#on-off').addClass('btn sketch-btn btn-danger');
+      $('#press-txt').addClass('invisible');
       $('#solar-panel').addClass('solar-grid-blue-y');
       $('#solar-panel').removeClass('solar-grid-clear-y');
       this.addBtnClasses();
