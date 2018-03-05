@@ -4,7 +4,7 @@ describe('Calculator', function() {
   beforeEach(function() {
     mfns = new MathFns();
   });
-  
+
   describe('Multiply', function() {
     it('Should multiply 0 and 0', function() {
       expect(mfns.multiply(0,0)).toEqual(0);
@@ -29,6 +29,36 @@ describe('Calculator', function() {
     });
     it('Should multiply a negative and a positive decimal', function() {
       expect(mfns.multiply(-1.5,0.5)).toEqual(-0.75);
+    });
+  });
+
+  describe('Division', function() {
+    it('Should divide 0 and 0', function() {
+      expect(mfns.divide(0,0)).toEqual(0);
+    });
+    it('Should divide 0 and 1', function() {
+      expect(mfns.divide(0,1)).toEqual(0);
+    });
+    it('Should divide two positive numbers', function() {
+      expect(mfns.divide(1,2)).toEqual(0.5);
+    });
+    it('Should divide a negative times a positive number', function() {
+      expect(mfns.divide(-5,2)).toEqual(-2.5);
+    });
+    it('Should divide three whole numbers into a decimal', function() {
+      expect(mfns.divide(1,2,3)).toEqual(0.16666666666666666);
+    });
+    it('Should divide one negative and one positive number', function() {
+      expect(mfns.divide(-2,6)).toEqual(-0.3333333333333333);
+    });
+    it('Should divide two Decimals', function() {
+      expect(mfns.divide(1.5,0.5)).toEqual(3);
+    });
+    it('Should divide a negative and a positive decimal', function() {
+      expect(mfns.divide(-1.5,0.5)).toEqual(-3);
+    });
+    it('Should divide two negative decimals', function() {
+      expect(mfns.divide(-1.5,-0.11)).toEqual(13.636363636363637);
     });
   });
 
