@@ -64,4 +64,31 @@ describe("Calculator", function() {
       expect(mfns.add(-1.5,0.5)).toEqual(-1);
     });
   });
+
+  describe("Multiply", function() {
+    it('Should multiply 0 and 0', function() {
+      expect(mfns.multiply(0,0)).toEqual(0);
+    });
+    it('Should multiply 0 and 1', function() {
+      expect(mfns.multiply(0,1)).toEqual(0);
+    });
+    it("Should multiply two positive numbers", function() {
+      expect(mfns.multiply(1,2)).toEqual(2);
+    });
+    it("Should multiply a negative times a positive number", function() {
+      expect(mfns.multiply(-5,2)).toEqual(-10);
+    });
+    it("Should multiply more than two numbers", function() {
+      expect(mfns.multiply(1,2,3)).toEqual(6);
+    });
+    it('Should multiply one negative and one positive number', function() {
+      expect(mfns.multiply(-2,6)).toEqual(-12);
+    });
+    it('Should multiply two Decimals', function() {
+      expect(mfns.multiply(1.5,0.5)).toEqual(0.75);
+    });
+    it('Should multiply a negative and a positive decimal', function() {
+      expect(mfns.multiply(-1.5,0.5)).toEqual(-0.75);
+    });
+  });
 });
