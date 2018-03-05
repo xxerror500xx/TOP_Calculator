@@ -45,17 +45,27 @@ describe('Equations', function() {
       eq.append(4);
       expect(eq.getFull()).toEqual([4]);
     });
+    it('Should replace the default 0 value multiple elements', function() {
+      eq.append(4);
+      eq.append(3);
+      eq.append(5);
+      expect(eq.getFull()).toEqual([4, 3, 5]);
+    });
     it('Should append a multi digit interger', function() {
       eq.append(321);
-      expect(eq.getFull()).toEqual([321]);
+      expect(eq.getLast()).toEqual(321);
     });
-    it('Should append a single digit float', function() {
+    it('Should append a single float', function() {
       eq.append(1.1111);
-      expect(eq.getFull()).toEqual([1.1111]);
+      expect(eq.getLast()).toEqual(1.1111);
     });
     it('Should append a math symbol', function() {
       eq.append('+');
-      expect(eq.getFull()).toEqual(['+']);
+      expect(eq.getLast()).toEqual('+');
+    });
+    it('Should append a math symbol', function() {
+      eq.append(0);
+      expect(eq.getLast()).toEqual(0);
     });
   });
 });
