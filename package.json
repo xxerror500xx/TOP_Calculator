@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A web based calculator for simple math equations. This is a responsive layout designed to look like it was a sketch on paper.",
   "main": "index.html",
-  "scripts": { "test": "jasmine" },
+  "scripts": {
+    "test": "jasmine"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/xxerror500xx/TOP_Calculator.git"
