@@ -1,5 +1,7 @@
 describe('Equations', function() {
   var Equations = require('../../js/Equations');
+  var MathFns = require('../../js/MathFns');
+  var mfns = new MathFns();
   var eq;
 
   beforeEach(function() {

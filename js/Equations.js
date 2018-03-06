@@ -22,8 +22,3 @@ Equations.prototype.append = function append(val) {
 };
 
 module.exports = Equations;
-
-// In another module:
-// var Equations = require("./my_object.js");
-// var my_obj_instance = new Equations("foobar");
-// my_obj_instance.foo(); // => "foobar"
