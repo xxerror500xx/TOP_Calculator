@@ -52,14 +52,41 @@ MathFns.prototype.equals = function(expressionArray) {
   var exp = expressionArray;
   var result;
   // Will need a method to sort Array operators into GEMA / PEMDAS
+  if (exp.includes('*')) {
+    var multipliers = [];
+    for (var i = 0; i < exp.length; i++) {
+      if (exp[i] !== '*') {
+        multipliers.push(exp[i]);
+      }
+    }
+    result = this.multiply(multipliers);
+  }
+  if (exp.includes('/')) {
+    var divisors = [];
+    for (var i = 0; i < exp.length; i++) {
+      if (exp[i] !== '/') {
+        divisors.push(exp[i]);
+      }
+    }
+    result = this.divide(divisors);
+  }
   if (exp.includes('+')) {
-    var additives= [];
+    var additives = [];
     for (var i = 0; i < exp.length; i++) {
       if (exp[i] !== '+') {
         additives.push(exp[i]);
       }
     }
     result = this.add(additives);
+  }
+  if (exp.includes('-')) {
+    var subtractors = [];
+    for (var i = 0; i < exp.length; i++) {
+      if (exp[i] !== '-') {
+        subtractors.push(exp[i]);
+      }
+    }
+    result = this.subtract(subtractors);
   }
   return result;
 };

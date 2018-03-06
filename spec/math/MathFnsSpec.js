@@ -123,8 +123,17 @@ describe('Calculator', function() {
   });
   // This is the key method for parsing and calculating
   describe('Equals', function() {
-    it('Should evaluate a simple expression given as array with a single operation and return a result', function() {
-      expect(mfns.equals([1, '+', 1])).toEqual(2);
+    it('Should evaluate simple single operator expressions', function() {
+      expect(mfns.equals([2, '*', 2])).toEqual(4);
+      expect(mfns.equals([12, '/', 6])).toEqual(2);
+      expect(mfns.equals([5, '+', 1])).toEqual(6);
+      expect(mfns.equals([4, '-', 5])).toEqual(-1);
+    });
+    it('Should evaluate multiple operators of the same type', function() {
+      expect(mfns.equals([2, '*', 2, '*', 2])).toEqual(8);
+      expect(mfns.equals([1, '/', 1, '/', 1])).toEqual(1);
+      expect(mfns.equals([1, '+', 1, '+', 2])).toEqual(4);
+      expect(mfns.equals([1, '-', 1, '-', 2])).toEqual(-2);
     });
   });
 });

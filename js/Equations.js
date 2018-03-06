@@ -1,6 +1,6 @@
 function Equations() {
   this.eqArray = [0];
-}
+};
 
 Equations.prototype.getFull = function getFull() {
   return this.eqArray
