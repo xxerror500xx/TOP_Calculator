@@ -135,5 +135,14 @@ describe('Calculator', function() {
       expect(mfns.equals([1, '+', 1, '+', 2])).toEqual(4);
       expect(mfns.equals([1, '-', 1, '-', 2])).toEqual(-2);
     });
+    it('Should respect the order of operations for multiple operators of different types', function() {
+      expect(mfns.equals([2, '+', 2, '*', 2])).toEqual(6);
+      expect(mfns.equals([2, '+', 2, '*', 2, '*', 2])).toEqual(10);
+      expect(mfns.equals([2, '+', 2, '+', 2, '*', 2, '*', 2])).toEqual(12);
+      expect(mfns.equals([2, '+', 2, '-', 2, '*', 2])).toEqual(0);
+      expect(mfns.equals([2, '+', 2, '-', 2, '*', 2, '/', 2])).toEqual(2);
+      expect(mfns.equals([2, '+', 2, '/', 2, '-', 2, '*', 2, '/', 2])).toEqual(1);
+      expect(mfns.equals([50, '*', 2, '+', 2, '/', -2, '-', 2, '*', 2, '/', -2])).toEqual(101);
+    });
   });
 });

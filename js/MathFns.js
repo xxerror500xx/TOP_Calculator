@@ -55,38 +55,62 @@ MathFns.prototype.equals = function(expressionArray) {
   if (exp.includes('*')) {
     var multipliers = [];
     for (var i = 0; i < exp.length; i++) {
-      if (exp[i] !== '*') {
-        multipliers.push(exp[i]);
+      if (exp[i] === '*') {
+        multipliers.push(exp[i-1], exp[i+1]);
+        exp[i+1] = this.multiply(multipliers);
+        // console.log('exp: ' + exp);
+        exp.splice(i-1, 2);
+        i = 0;
+        // console.log(exp);
+        multipliers = [];
       }
     }
-    result = this.multiply(multipliers);
+    result = exp[0];
   }
   if (exp.includes('/')) {
     var divisors = [];
     for (var i = 0; i < exp.length; i++) {
-      if (exp[i] !== '/') {
-        divisors.push(exp[i]);
+      if (exp[i] === '/') {
+        divisors.push(exp[i-1], exp[i+1]);
+        exp[i+1] = this.divide(divisors);
+        // console.log('exp: ' + exp);
+        exp.splice(i-1, 2);
+        i = 0;
+        // console.log(exp);
+        divisors = [];
       }
     }
-    result = this.divide(divisors);
+    result = exp[0];
   }
   if (exp.includes('+')) {
     var additives = [];
     for (var i = 0; i < exp.length; i++) {
-      if (exp[i] !== '+') {
-        additives.push(exp[i]);
+      if (exp[i] === '+') {
+        additives.push(exp[i-1], exp[i+1]);
+        exp[i+1] = this.add(additives);
+        // console.log('exp: ' + exp);
+        exp.splice(i-1, 2);
+        i = 0;
+        // console.log(exp);
+        additives = [];
       }
     }
-    result = this.add(additives);
+    result = exp[0];
   }
   if (exp.includes('-')) {
     var subtractors = [];
     for (var i = 0; i < exp.length; i++) {
-      if (exp[i] !== '-') {
-        subtractors.push(exp[i]);
+      if (exp[i] === '-') {
+        subtractors.push(exp[i-1], exp[i+1]);
+        exp[i+1] = this.subtract(subtractors);
+        // console.log('exp: ' + exp);
+        exp.splice(i-1, 2);
+        i = 0;
+        // console.log(exp);
+        subtractors = [];
       }
     }
-    result = this.subtract(subtractors);
+    result = exp[0];
   }
   return result;
 };
