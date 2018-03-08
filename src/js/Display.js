@@ -1,4 +1,4 @@
-var display = {
+display = {
   pwr: function() {
     if (power) {
       $('#on-off').removeClass('btn sketch-btn btn-danger');

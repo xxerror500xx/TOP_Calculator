@@ -1,4 +1,4 @@
-var kbd = {
+kbd = {
   init: function() {
     power = false;
     $(document).keypress(function(e) {
