@@ -14,4 +14,4 @@ I did borrow some code and modified the [css for the buttons](https://codepen.io
 
 This lesson can be found @ The Odin Project [Curriculum](https://www.theodinproject.com/courses/web-development-101/lessons/calculator)
 
-* [Clifford Minks's Solution](https://github.com/xxerror500xx/TOP_Calculator) | [View in browser](https://xxerror500xx.github.io/TOP_Calculator)
+* [Clifford Minks's Solution](https://github.com/xxerror500xx/TOP_Calculator) | [View in browser](https://xxerror500xx.github.io/TOP_Calculator/dist)
