@@ -1,4 +1,4 @@
-var calc = {
+calc = {
   addToEquation: function(value) {
     if (power) {
       if (equation.length === 0 && prevResult === "") {
