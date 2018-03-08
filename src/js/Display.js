@@ -35,6 +35,10 @@ var display = {
       $('#' + buttons[i].id).addClass('sketch-btn-outline');
     }
   },
+  updatePaperTape: function(equationString, result) {
+    // Row should equal pastEquations index
+    $('#p-tBody').append('<tr class=""><td class="tape-font">' + equationString + '</td><td class="tape-font"> = ' + result + '</td></tr>');
+  },
   updateCalcDisplay: function() {
     if (equation.length === 1 && equation[0] !== '0') {
       $('#calc-disp').val('');

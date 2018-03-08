@@ -1,6 +1,6 @@
 describe('Equations', function() {
-  var Equations = require('../../js/Equations');
-  var MathFns = require('../../js/MathFns');
+  var Equations = require('../../src/js/Equations');
+  var MathFns = require('../../src/js/MathFns');
   var mfns = new MathFns();
   var eq;
 

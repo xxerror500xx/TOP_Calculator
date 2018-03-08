@@ -7,6 +7,7 @@ Another assignment for the Odin Project using Js / Jquery, css, and html.
 DEV
 - NodeJS
 - NPM
+- WebPack
 - Jasmine
 
 I did borrow some code and modified the [css for the buttons](https://codepen.io/tmrDevelops/pen/VeRvKX) from the amazing [Tiffany Rayside](https://codepen.io/tmrDevelops). OMG, so much talent in this one!

@@ -1,5 +1,5 @@
 describe('Calculator', function() {
-  var MathFns = require('../../js/MathFns');
+  var MathFns = require('../../src/js/MathFns');
   var mfns;
   beforeEach(function() {
     mfns = new MathFns();
