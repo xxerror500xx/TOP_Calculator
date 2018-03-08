@@ -4,6 +4,7 @@
   "description": "A web based calculator for simple math equations. This is a responsive layout designed to look like it was a sketch on paper.",
   "main": "index.html",
   "scripts": {
+    "build": "webpack",
     "test": "jasmine"
   },
   "repository": {
