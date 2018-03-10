@@ -28,13 +28,17 @@
   "homepage": "https://github.com/xxerror500xx/TOP_Calculator#readme",
   "devDependencies": {
     "css-loader": "^0.28.10",
+    "file-loader": "^1.1.11",
     "jasmine": "^3.1.0",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.10"
   },
   "dependencies": {
     "bootstrap": "^4.0.0",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "popper.js": "^1.12.9"
   }
