@@ -2,10 +2,15 @@ const webpack = require('webpack'); //to access built-in plugins
 const path = require('path');
 
 module.exports = {
+  mode: 'development',
   entry: './src/js/master.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
+  },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist'
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -14,8 +19,7 @@ module.exports = {
     })
   ],
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.css$/,
         use: [
           'style-loader',
@@ -25,24 +29,24 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [{
-            loader: "style-loader" // creates style nodes from JS strings
+          loader: "style-loader" // creates style nodes from JS strings
         }, {
-            loader: "css-loader" // translates CSS into CommonJS
+          loader: "css-loader" // translates CSS into CommonJS
         }, {
-            loader: "sass-loader" // compiles Sass to CSS
+          loader: "sass-loader" // compiles Sass to CSS
         }]
       },
       {
-         test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-         use: [{
-           loader: 'file-loader',
-           options: {
-             name: '[name].[ext]',
-             outputPath: 'fonts/',    // where the fonts will go
-             publicPath: '../'       // override the default path
-           }
-         }]
-       },
+        test: /.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/', // where the fonts will go
+            publicPath: '../' // override the default path
+          }
+        }]
+      },
     ]
   }
 };
