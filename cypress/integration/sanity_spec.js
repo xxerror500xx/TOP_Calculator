@@ -1,5 +1,5 @@
 describe('Sanity', function() {
-  it('Smoke test', function() {
+  it('Smoke tests', function() {
     cy.visit('/')
     cy.contains('TOP: Calculator')
   })

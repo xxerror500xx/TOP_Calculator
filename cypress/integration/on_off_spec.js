@@ -1,0 +1,23 @@
+describe('Calculator On-Off', function() {
+  it('Loads grey and white buttons', function() {
+    cy.visit('/')
+    cy.get('#on-off')
+      .should('not.have.class', 'btn-danger')
+      .click()
+    cy.get('#on-off')
+      .should('have.class', 'btn-danger')
+      .click()
+  })
+  it('Notifies to press on button', function() {
+    cy.get('#press-txt')
+      .should('not.have.class', 'invisible')
+    cy.get('#on-off')
+      .should('not.have.class', 'btn-danger')
+      .click()
+    cy.get('#press-txt')
+      .should('have.class', 'invisible')
+    cy.get('#on-off')
+      .should('have.class', 'btn-danger')
+      .click()
+  })
+})
