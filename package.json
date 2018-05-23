@@ -8,7 +8,7 @@
     "build": "webpack",
     "start": "webpack-dev-server --open",
     "cypress:open": "cypress open",
-    "test": "jasmine"
+    "test": "mocha --recursive"
   },
   "repository": {
     "type": "git",
@@ -30,11 +30,12 @@
   },
   "homepage": "https://github.com/xxerror500xx/TOP_Calculator#readme",
   "devDependencies": {
+    "chai": "^4.1.2",
     "css-loader": "^0.28.11",
     "cypress": "^2.1.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
-    "jasmine": "^3.1.0",
+    "mocha": "^5.2.0",
     "node-sass": "^4.9.0",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
